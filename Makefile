@@ -1,9 +1,14 @@
 all: libsourcey/build/Makefile
 	cd libsourcey/build && make VERBOSE=1 webrtcrecorder
 
-web:
+web: libsourcey/src/webrtc/samples/webrtcrecorder/client/~node_modules.done
 	which nodenv
 	cd libsourcey/src/webrtc/samples/webrtcrecorder/client && node app
+
+libsourcey/src/webrtc/samples/webrtcrecorder/client/~node_modules.done: libsourcey/src/webrtc/samples/webrtcrecorder/client/package.json libsourcey/src/webrtc/samples/webrtcrecorder/client/package-lock.json
+	which nodenv
+	cd libsourcey/src/webrtc/samples/webrtcrecorder/client && npm install
+	touch $@
 
 rec:
 	cd libsourcey/build/webrtc/samples/webrtcrecorder && ./webrtcrecorderd
