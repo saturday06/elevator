@@ -6,7 +6,7 @@ all: libsourcey/build/Makefile
 # https://github.com/sourcey/webrtc-builds/blob/10f78e1d58b8be0085374c66060c1bb0df61d3d6/util.sh
 libwebrtc/src/out/Debug/obj/default.stamp libwebrtc/src/out/Release/obj/default.stamp: 
 	cd libwebrtc && \
-		echo gclient sync && \
+		gclient sync && \
 		cd src && \
 		gn gen out/Debug --args='is_debug=true rtc_include_tests=false use_rtti=true enable_iterator_debugging=false is_component_build=false is_clang=false use_sysroot=false linux_use_bundled_binutils=false use_custom_libcxx=false use_custom_libcxx_for_host=false treat_warnings_as_errors=false' && \
 		gn gen out/Release --args='is_debug=false rtc_include_tests=false use_rtti=true enable_iterator_debugging=false is_component_build=false is_clang=false use_sysroot=false linux_use_bundled_binutils=false use_custom_libcxx=false use_custom_libcxx_for_host=false treat_warnings_as_errors=false' && \
