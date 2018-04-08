@@ -1,6 +1,13 @@
 all: libsourcey/build/Makefile
 	cd libsourcey/build && make VERBOSE=1 webrtcrecorder
 
+web:
+	which nodenv
+	cd libsourcey/src/webrtc/samples/webrtcrecorder/client && node app
+
+rec:
+	cd libsourcey/build/webrtc/samples/webrtcrecorder && ./webrtcrecorderd
+
 # SEE MD COMMENT!!! https://raw.githubusercontent.com/sourcey/libsourcey/d157a149d935bdd9e10ccd307eec8a47cdd0de59/doc/installation-linux.md
 # https://github.com/sourcey/sourcey.com/blob/44dd301c6fbd243bb5af89b5a5bd711083dba18d/source/2017-09-01-building-and-installing-webrtc-on-windows.md
 # https://github.com/sourcey/webrtc-builds/blob/10f78e1d58b8be0085374c66060c1bb0df61d3d6/util.sh
