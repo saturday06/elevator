@@ -1,4 +1,8 @@
-all: libsourcey/build/Makefile
+.PHONY: default
+
+default: libsourcey/build/webrtc/samples/webrtcrecorder/webrtcrecorderd
+
+libsourcey/build/webrtc/samples/webrtcrecorder/webrtcrecorderd: libsourcey/build/Makefile
 	cd libsourcey/build && make VERBOSE=1 webrtcrecorder
 
 web: libsourcey/src/webrtc/samples/webrtcrecorder/client/~node_modules.done
@@ -10,7 +14,7 @@ libsourcey/src/webrtc/samples/webrtcrecorder/client/~node_modules.done: libsourc
 	cd libsourcey/src/webrtc/samples/webrtcrecorder/client && npm install
 	touch $@
 
-rec:
+rec: libsourcey/build/webrtc/samples/webrtcrecorder/webrtcrecorderd
 	cd libsourcey/build/webrtc/samples/webrtcrecorder && ./webrtcrecorderd
 
 # SEE MD COMMENT!!! https://raw.githubusercontent.com/sourcey/libsourcey/d157a149d935bdd9e10ccd307eec8a47cdd0de59/doc/installation-linux.md
