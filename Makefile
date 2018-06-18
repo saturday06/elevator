@@ -15,6 +15,7 @@ libsourcey/src/webrtc/samples/webrtcrecorder/client/~node_modules.done: libsourc
 	touch $@
 
 rec: libsourcey/build/webrtc/samples/webrtcrecorder/webrtcrecorderd
+	cd libsourcey/build && make VERBOSE=1 webrtcrecorder
 	cd libsourcey/build/webrtc/samples/webrtcrecorder && ./webrtcrecorderd
 
 # SEE MD COMMENT!!! https://raw.githubusercontent.com/sourcey/libsourcey/d157a149d935bdd9e10ccd307eec8a47cdd0de59/doc/installation-linux.md
