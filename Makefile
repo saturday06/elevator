@@ -40,6 +40,6 @@ libsourcey/build/Makefile: libwebrtc/src/out/Debug/obj/default.stamp libwebrtc/s
 			-DBUILD_APPLICATIONS=OFF \
 			-DBUILD_SAMPLES_webrtc=ON \
 			-DWITH_WEBRTC=ON \
-			-DWITH_FFMPEG=ON \
+			-DWITH_FFMPEG=OFF \
 			-DBUILD_MODULE_webrtc=ON \
 			-G "Unix Makefiles"
